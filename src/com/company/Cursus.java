@@ -2,13 +2,16 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Consumer;
 
-public class Cursus implements Iterable {
+
+public class Cursus implements Iterable<Cursist> {  // Type van het Object dat de Iterator
 
 
     private String cursusnaam;
     private int duurtijd;
     private int maxAantalDeelnemers;
+
     private ArrayList<Cursist> cursisten = new ArrayList<>();
 
 
@@ -20,6 +23,7 @@ public class Cursus implements Iterable {
     }
 
     public void schrijfCursistIn(Cursist cursist) {
+
         cursisten.add(cursist);
     }
 
@@ -39,8 +43,10 @@ public class Cursus implements Iterable {
         return cursisten.size();
     }
 
+
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<Cursist> iterator() {
+        return cursisten.iterator();
     }
+
 }

@@ -59,11 +59,12 @@ public class Main {
 
         cursus.schrijfCursistIn(nieuweCursist);
 
-        System.out.printf("%s (%d jaar) is ingeschreven.", nieuweCursist.getNaam(), nieuweCursist.getLeeftijd());
+        System.out.printf("%s (%d jaar) is ingeschreven.%n", nieuweCursist.getNaam(), nieuweCursist.getLeeftijd());
 
         System.out.println("De ingeschreven cursisten zijn: ");
 
         int teller = 1;
+
 
         for(Cursist c: cursus){
             System.out.printf("%d. %s%n", teller, c.getNaam());

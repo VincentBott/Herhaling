@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.time.Period;
 
 
-public class Cursist {
+
+public class Cursist  {
 
 
     private String naam;
