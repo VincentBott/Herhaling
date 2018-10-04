@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CursusException {
 
         Cursist joske = new Cursist("Joske", LocalDate.of(2000, Month.OCTOBER, 30));
 
@@ -66,12 +66,46 @@ public class Main {
         int teller = 1;
 
 
+        toonCursisten(cursus, teller);
+
+
+    //    cursus.schrijfCursistUit(joske);
+
+    //    System.out.printf("%nCursist %s is uitgeschreven%n", joske.getNaam());
+
+
+
+        cursus.schrijfCursistIn(joske);
+
+
+        System.out.printf("We schrijven %s in %n", joske.getNaam());
+
+        try {
+
+            cursus.schrijfCursistIn(joske);
+            System.out.printf("Cursist %s is ingeschreven%n", joske.getNaam());
+
+        } catch (CursusException ex){
+
+            System.out.println(ex.getMessage());
+        }
+
+
+        try {
+            cursus.schrijfCursistUit(joske);
+            System.out.printf("Cursist %s is uitgeschreven%n", joske.getNaam());
+
+        } catch (CursusException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
+    private static void toonCursisten(Cursus cursus, int teller) {  // Gegenereerd d.m.v. Refactoring
         for(Cursist c: cursus){
             System.out.printf("%d. %s%n", teller, c.getNaam());
             teller ++;
         }
-
-
     }
 }
 

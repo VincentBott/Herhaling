@@ -2,7 +2,7 @@ package com.company;
 
 import java.time.LocalDate;
 import java.time.Period;
-
+import java.util.Objects;
 
 
 public class Cursist  {
@@ -33,4 +33,20 @@ public class Cursist  {
 
         return periode.getYears();
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cursist cursist = (Cursist) o;
+        return Objects.equals(naam, cursist.naam) &&
+                Objects.equals(geboortedatum, cursist.geboortedatum);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(naam, geboortedatum);
+    }
+
 }
